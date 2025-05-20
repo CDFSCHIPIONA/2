@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CDFS Chipiona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #003366;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px; /* Reducido el espacio entre el logo y el texto */
+        }
+
+        .logo-img {
+            height: 200px; /* Aumentamos el tamaño del logo mucho más grande */
+        }
+
+        .logo-text {
+            font-size: 48px;  /* Aumentamos el tamaño de la fuente para que se ajuste al estilo */
+            font-weight: bold;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace; /* Elegí una fuente monoespaciada para imitar el estilo en negrita */
+            letter-spacing: 2px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .plantilla {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 1400px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .jugadores-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .jugador {
+            width: 300px;
+            height: 400px;
+            background-color: #003366;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .jugador img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="img/LOGO.png" alt="Logo Chipiona" class="logo-img">
+        <h1 class="logo-text">𝐂𝐃𝐅𝐒 𝐂𝐇𝐈𝐏𝐈𝐎𝐍𝐀</h1> <!-- Actualización con el estilo de texto solicitado -->
+    </header>
+
+    <main>
+        <section class="plantilla">
+            <h2 style="text-align:center;">Plantilla de Jugadores</h2>
+            <div class="jugadores-container">
+                <!-- 11 jugadores sin nombres ni campos de texto -->
+                <div class="jugador"><img src="img/foto_1.jpg" alt="Jugador 1"></div>
+                <div class="jugador"><img src="img/foto_2.jpg" alt="Jugador 2"></div>
+                <div class="jugador"><img src="img/foto_3.jpg" alt="Jugador 3"></div>
+                <div class="jugador"><img src="img/foto_4.jpg" alt="Jugador 4"></div>
+                <div class="jugador"><img src="imagenes/foto.jpg" alt="Jugador 5"></div>
+                <div class="jugador"><img src="imagenes/foto.jpg" alt="Jugador 6"></div>
+                <div class="jugador"><img src="imagenes/foto.jpg" alt="Jugador 7"></div>
+                <div class="jugador"><img src="imagenes/foto.jpg" alt="Jugador 8"></div>
+                <div class="jugador"><img src="imagenes/foto.jpg" alt="Jugador 9"></div>
+                <div class="jugador"><img src="imagenes/foto.jpg" alt="Jugador 10"></div>
+                <div class="jugador"><img src="imagenes/foto.jpg" alt="Jugador 11"></div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
