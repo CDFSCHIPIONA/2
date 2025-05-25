@@ -102,219 +102,33 @@
             right: 10px;
         }
 
-        /* Modal */
+        /* Modal imagen ampliada */
         #imageModal {
             display: none;
             position: fixed;
-            z-index: 1000;
-            left: 0;
+            z-index: 2000;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            align-items: center;
+            background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
-            cursor: zoom-out;
+            align-items: center;
         }
 
         #imageModal img {
             max-width: 90%;
             max-height: 90%;
-            object-fit: contain;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <img src="img/LOGO.png" alt="Logo Chipiona" class="logo-img">
-        <h1 class="logo-text">𝐂𝐃𝐅𝐒 𝐂𝐇𝐈𝐏𝐈𝐎𝐍𝐀</h1>
-    </header>
-
-    <main>
-        <section class="plantilla">
-            <h2 style="text-align:center;">Plantilla de Jugadores</h2>
-            <div class="carrusel-container">
-                <button class="carrusel-btn prev">&#10094;</button>
-                <div class="carrusel-track">
-                    <div class="jugador"><img src="img/foto_1.jpg" alt="Jugador 1"></div>
-                    <div class="jugador"><img src="img/foto_2.jpg" alt="Jugador 2"></div>
-                    <div class="jugador"><img src="img/foto_3.jpg" alt="Jugador 3"></div>
-                    <div class="jugador"><img src="img/foto_4.jpg" alt="Jugador 4"></div>
-                    <div class="jugador"><img src="img/foto_5.jpg" alt="Jugador 5"></div>
-                    <div class="jugador"><img src="img/foto_6.jpg" alt="Jugador 6"></div>
-                    <div class="jugador"><img src="img/foto_7.jpg" alt="Jugador 7"></div>
-                    <div class="jugador"><img src="img/foto_8.jpg" alt="Jugador 8"></div>
-                    <div class="jugador"><img src="img/foto_9.jpg" alt="Jugador 9"></div>
-                    <div class="jugador"><img src="img/foto_10.jpg" alt="Jugador 10"></div>
-                    <div class="jugador"><img src="img/foto_11.jpg" alt="Jugador 11"></div>
-                </div>
-                <button class="carrusel-btn next">&#10095;</button>
-            </div>
-        </section>
-    </main>
-
-    <!-- Modal para ampliar imágenes -->
-    <div id="imageModal">
-        <img id="modalImg" src="">
-    </div>
-
-    <script>
-        const track = document.querySelector('.carrusel-track');
-        const prevBtn = document.querySelector('.carrusel-btn.prev');
-        const nextBtn = document.querySelector('.carrusel-btn.next');
-
-        const scrollStep = 340;
-
-        prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            track.scrollBy({ left: scrollStep, behavior: 'smooth' });
-        });
-
-        // Función para ampliar imagen
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImg");
-
-        document.querySelectorAll('.jugador img').forEach(img => {
-            img.addEventListener('click', () => {
-                modal.style.display = "flex";
-                modalImg.src = img.src;
-            });
-        });
-
-        modal.addEventListener('click', () => {
-            modal.style.display = "none";
-        });
-    </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>CDFS Chipiona</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            margin: 0;
-            padding: 0;
         }
 
-        header {
-            background-color: #003366;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .logo-img {
-            height: 200px;
-        }
-
-        .logo-text {
-            font-size: 48px;
-            font-weight: bold;
-            margin: 0;
-            font-family: 'Courier New', Courier, monospace;
-            letter-spacing: 2px;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        .plantilla {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 1400px;
-            margin: auto;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .carrusel-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            margin: 30px auto;
-        }
-
-        .carrusel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            gap: 30px;
-            padding: 10px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-        }
-
-        .jugador {
-            flex: 0 0 auto;
-            width: 300px;
-            height: 400px;
-            background-color: #003366;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .jugador img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            cursor: zoom-in;
-        }
-
-        .carrusel-btn {
+        #closeModal {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.5);
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
             color: white;
-            border: none;
-            font-size: 30px;
-            padding: 10px;
             cursor: pointer;
-            z-index: 1;
-        }
-
-        .carrusel-btn.prev {
-            left: 10px;
-        }
-
-        .carrusel-btn.next {
-            right: 10px;
-        }
-
-        /* Modal */
-        #imageModal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            align-items: center;
-            justify-content: center;
-            cursor: zoom-out;
-        }
-
-        #imageModal img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -339,50 +153,4 @@
                     <div class="jugador"><img src="img/foto_6.jpg" alt="Jugador 6"></div>
                     <div class="jugador"><img src="img/foto_7.jpg" alt="Jugador 7"></div>
                     <div class="jugador"><img src="img/foto_8.jpg" alt="Jugador 8"></div>
-                    <div class="jugador"><img src="img/foto_9.jpg" alt="Jugador 9"></div>
-                    <div class="jugador"><img src="img/foto_10.jpg" alt="Jugador 10"></div>
-                    <div class="jugador"><img src="img/foto_11.jpg" alt="Jugador 11"></div>
-                </div>
-                <button class="carrusel-btn next">&#10095;</button>
-            </div>
-        </section>
-    </main>
-
-    <!-- Modal para ampliar imágenes -->
-    <div id="imageModal">
-        <img id="modalImg" src="">
-    </div>
-
-    <script>
-        const track = document.querySelector('.carrusel-track');
-        const prevBtn = document.querySelector('.carrusel-btn.prev');
-        const nextBtn = document.querySelector('.carrusel-btn.next');
-
-        const scrollStep = 340;
-
-        prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            track.scrollBy({ left: scrollStep, behavior: 'smooth' });
-        });
-
-        // Función para ampliar imagen
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImg");
-
-        document.querySelectorAll('.jugador img').forEach(img => {
-            img.addEventListener('click', () => {
-                modal.style.display = "flex";
-                modalImg.src = img.src;
-            });
-        });
-
-        modal.addEventListener('click', () => {
-            modal.style.display = "none";
-        });
-    </script>
-
-</body>
-</html>
+                    <div class="jugador"><img
