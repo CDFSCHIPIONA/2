@@ -139,11 +139,31 @@
             cursor: pointer;
             z-index: 1001;
         }
+
+        /* Campus de verano */
+        .carteles-campus {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .campus-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body>
     
-        <header>
+    <header>
         <img src="img/LOGO.png" alt="Logo Chipiona" class="logo-img">
         <h1 class="logo-text">𝐂𝐃𝐅𝐒 𝐂𝐇𝐈𝐏𝐈𝐎𝐍𝐀</h1>
     </header>
@@ -168,6 +188,11 @@
                 </div>
                 <button class="carrusel-btn next">&#10095;</button>
             </div>
+        </section>
+
+        <section class="carteles-campus">
+            <img src="img/imagen_2.jpeg" alt="Cartel Programa Educativo" class="campus-img">
+            <img src="img/imagen_3.jpeg" alt="Cartel Actividades" class="campus-img">
         </section>
     </main>
 
