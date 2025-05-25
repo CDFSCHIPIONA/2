@@ -13,25 +13,46 @@
 
         header {
             background-color: #003366;
-            padding: 20px;
-            text-align: center;
+            padding: 20px 40px;
             color: white;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .logo-img {
-            height: 200px;
+            height: 100px;
         }
 
         .logo-text {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: bold;
             margin: 0;
             font-family: 'Courier New', Courier, monospace;
             letter-spacing: 2px;
+        }
+
+        .nav-redes {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-redes img {
+            width: 32px;
+            height: 32px;
+            transition: transform 0.2s ease;
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-redes img:hover {
+            transform: scale(1.2);
         }
 
         main {
@@ -164,8 +185,21 @@
 <body>
     
     <header>
-        <img src="img/LOGO.png" alt="Logo Chipiona" class="logo-img">
-        <h1 class="logo-text">𝐂𝐃𝐅𝐒 𝐂𝐇𝐈𝐏𝐈𝐎𝐍𝐀</h1>
+        <div class="logo-container">
+            <img src="img/LOGO.png" alt="Logo Chipiona" class="logo-img">
+            <h1 class="logo-text">𝐂𝐃𝐅𝐒 𝐂𝐇𝐈𝐏𝐈𝐎𝐍𝐀</h1>
+        </div>
+        <nav class="nav-redes">
+            <a href="https://www.instagram.com/tucuenta" target="_blank" aria-label="Instagram">
+                <img src="img/icon-instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/tucuenta" target="_blank" aria-label="Facebook">
+                <img src="img/icon-facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.tiktok.com/@tucuenta" target="_blank" aria-label="TikTok">
+                <img src="img/icon-tiktok.png" alt="TikTok">
+            </a>
+        </nav>
     </header>
 
     <main>
