@@ -44,12 +44,15 @@
             gap: 20px;
         }
 
-        .nav-redes a svg {
+        .nav-redes svg {
+            width: 32px;
+            height: 32px;
             transition: transform 0.2s ease;
+            filter: brightness(0) invert(1);
             cursor: pointer;
         }
 
-        .nav-redes a svg:hover {
+        .nav-redes svg:hover {
             transform: scale(1.2);
         }
 
@@ -207,8 +210,77 @@
     </header>
 
     <main>
-        <!-- resto de tu contenido -->
+        <section class="plantilla">
+            <h2>Plantilla de Jugadores</h2>
+            <div class="carrusel-container">
+                <button class="carrusel-btn prev">&#10094;</button>
+                <div class="carrusel-track">
+                    <div class="jugador"><img src="img/foto_1.jpg" alt="Jugador 1"></div>
+                    <div class="jugador"><img src="img/foto_2.jpg" alt="Jugador 2"></div>
+                    <div class="jugador"><img src="img/foto_3.jpg" alt="Jugador 3"></div>
+                    <div class="jugador"><img src="img/foto_4.jpg" alt="Jugador 4"></div>
+                    <div class="jugador"><img src="img/foto_5.jpg" alt="Jugador 5"></div>
+                    <div class="jugador"><img src="img/foto_6.jpg" alt="Jugador 6"></div>
+                    <div class="jugador"><img src="img/foto_7.jpg" alt="Jugador 7"></div>
+                    <div class="jugador"><img src="img/foto_8.jpg" alt="Jugador 8"></div>
+                    <div class="jugador"><img src="img/foto_9.jpg" alt="Jugador 9"></div>
+                    <div class="jugador"><img src="img/foto_10.jpg" alt="Jugador 10"></div>
+                    <div class="jugador"><img src="img/foto_11.jpg" alt="Jugador 11"></div>
+                </div>
+                <button class="carrusel-btn next">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="carteles-campus">
+            <img src="img/imagen_2.jpeg" alt="Cartel Programa Educativo" class="campus-img">
+            <img src="img/imagen_3.jpeg" alt="Cartel Actividades" class="campus-img">
+            <img src="img/imagen_1.jpeg" alt="Cartel Actividades" class="campus-img">
+        </section>
     </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script>
+        const track = document.querySelector('.carrusel-track');
+        const prevBtn = document.querySelector('.carrusel-btn.prev');
+        const nextBtn = document.querySelector('.carrusel-btn.next');
+
+        const scrollStep = 340;
+
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('#lightbox .close');
+
+        document.querySelectorAll('.jugador img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
 
 </body>
 </html>
