@@ -78,7 +78,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            cursor: zoom-in;
+            cursor: pointer;
         }
 
         .carrusel-btn {
@@ -102,33 +102,35 @@
             right: 10px;
         }
 
-        /* Modal imagen ampliada */
-        #imageModal {
-            display: none;
+        /* Lightbox styles */
+        #lightbox {
             position: fixed;
-            z-index: 2000;
-            top: 0;
+            z-index: 1000;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
+            background-color: rgba(0,0,0,0.8);
+            display: none;
             align-items: center;
+            justify-content: center;
         }
 
-        #imageModal img {
+        #lightbox .lightbox-content {
             max-width: 90%;
             max-height: 90%;
+            border-radius: 10px;
         }
 
-        #closeModal {
+        #lightbox .close {
             position: absolute;
             top: 20px;
-            right: 30px;
-            font-size: 40px;
+            right: 40px;
             color: white;
-            cursor: pointer;
+            font-size: 40px;
             font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
         }
     </style>
 </head>
@@ -136,7 +138,7 @@
 
     <header>
         <img src="img/LOGO.png" alt="Logo Chipiona" class="logo-img">
-        <h1 class="logo-text">𝐂𝐃𝐅𝐒 𝐂𝐇𝐈𝐏𝐈𝐎𝐍𝐀</h1>
+        <h1 class="logo-text">𝑃𝐽𝐥 𝐴𝐻𝐮𝐮𝐭𝐮</h1>
     </header>
 
     <main>
@@ -153,4 +155,58 @@
                     <div class="jugador"><img src="img/foto_6.jpg" alt="Jugador 6"></div>
                     <div class="jugador"><img src="img/foto_7.jpg" alt="Jugador 7"></div>
                     <div class="jugador"><img src="img/foto_8.jpg" alt="Jugador 8"></div>
-                    <div class="jugador"><img
+                    <div class="jugador"><img src="img/foto_9.jpg" alt="Jugador 9"></div>
+                    <div class="jugador"><img src="img/foto_10.jpg" alt="Jugador 10"></div>
+                    <div class="jugador"><img src="img/foto_11.jpg" alt="Jugador 11"></div>
+                </div>
+                <button class="carrusel-btn next">&#10095;</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script>
+        const track = document.querySelector('.carrusel-track');
+        const prevBtn = document.querySelector('.carrusel-btn.prev');
+        const nextBtn = document.querySelector('.carrusel-btn.next');
+
+        const scrollStep = 340;
+
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('#lightbox .close');
+
+        document.querySelectorAll('.jugador img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
